@@ -1,0 +1,18 @@
+(function ($) {
+	$(window).load(function () {
+		var $scrollTop = $("#scrollTop");
+		var $body = $("body");
+
+		window.onscroll = function () {
+			var scrollAmountPoint = 450;
+			$scrollTop.toggleClass("scrollTop--active", (window.pageYOffset >= scrollAmountPoint));
+		};
+
+		$scrollTop.on("click", function (ev) {
+			ev.preventDefault();
+			$("html, body").animate({
+				scrollTop: 0
+			}, 1000, "swing");
+		});
+	});
+})(jQuery);
